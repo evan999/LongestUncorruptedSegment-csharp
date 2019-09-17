@@ -1,5 +1,5 @@
 int[] longestUncorruptedSegment(int[] sourceArray, int[] destinationArray) {
-    
+
     int[] uncorruptedSegment = new int[2];
     int uncorruptedBlocks = 0;
     int startingBlock = 0;
@@ -7,10 +7,9 @@ int[] longestUncorruptedSegment(int[] sourceArray, int[] destinationArray) {
     int longestSegment = 0;
     
     for (int element = 0; element < sourceArray.Length; element++)
-    {
-        
+    {     
         if (sourceArray[element] != destinationArray[element])
-        {   
+        {            
             if (uncorruptedBlocks > longestSegment)
             {
                 longestSegment = uncorruptedBlocks;
@@ -18,7 +17,6 @@ int[] longestUncorruptedSegment(int[] sourceArray, int[] destinationArray) {
                 uncorruptedSegment[0] = longestSegment;
                 uncorruptedSegment[1] = longestStartingBlock;               
             }
-            
             uncorruptedBlocks = 0;
             continue;
         }
@@ -26,7 +24,6 @@ int[] longestUncorruptedSegment(int[] sourceArray, int[] destinationArray) {
         {
             if(uncorruptedBlocks < 1)
             {
-                uncorruptedSegment[0] = element;
                 startingBlock = element;
             }
             uncorruptedBlocks++;
